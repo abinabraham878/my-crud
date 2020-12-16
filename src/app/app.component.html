@@ -1,0 +1,19 @@
+<div class="container">
+  <form #userForm="ngForm">
+    <div class="form-group">
+      <label for="exampleInputEmail1">User Name</label>
+      <input type="text" class="form-control"  placeholder="Enter Email" name="userName" [(ngModel)]="usrobj.userName">
+    </div>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Email address</label>
+    <input type="email" class="form-control"  placeholder="Enter Email" name="email" [(ngModel)]="usrobj.email">
+    </div>
+    
+    <button *ngIf="!isEdit" type="button" class="btn btn-primary" (click)="addUser(userForm)">Submit</button>
+    <button *ngIf="isEdit" class="btn btn-primary" (click)="updateUser(userForm)">Update</button>
+  </form>
+</div>
+
+<hr />
+
+<app-user (sendToParent)="receiveUser($event)"></app-user>
